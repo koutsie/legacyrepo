@@ -33,7 +33,8 @@
         "1.0.19": "oops, use http instead",
         "1.0.20": "fixed frogfind, i thought it was .de hahah",
         "1.0.21": "updated icon",
-        "1.0.22": "fixed firmware gating"
+        "1.0.22": "fixed firmware gating",
+        "1.0.23": "ios5 support, added duckduckgo lite"
     },
     "com.koutsie.daemondemon": {
         "1.0.1": "initial version",

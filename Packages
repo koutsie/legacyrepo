@@ -35,20 +35,20 @@ SHA256: 397aeab3ee77198dd36c9d22279823fe8c8beea52f61a91bb6044fcbd4cef08d
 
 Package: com.koutsie.ducksafari
 Name: DuckSafari
-Version: 1.0.22
+Version: 1.0.23
 Architecture: iphoneos-arm
-Description: Adds DuckDuckGo, Wiby.me, and FrogFind to your search engine list. Works on iOS 6 through 10~ ish.
-Depends: firmware (>= 6.0), firmware (<= 10.0.0)
+Description: Adds DuckDuckGo, DuckDuckGo Lite, Wiby.me, and FrogFind to your search engine list. Works on iOS 5 through 10~ ish.
+Depends: firmware (>= 5.0), firmware (<= 10.0.0)
 Maintainer: koutsie <contact@the-sauna.icu>
 Author: koutsie
 Section: Tweaks
 Icon: file:///Library/DuckSafari/ducksafari.png
 Depiction: https://koutsie.srht.site/depictions/com.koutsie.ducksafari.html
-Filename: debs/com.koutsie.ducksafari_1.0.22_iphoneos-arm.deb
-Size: 14578
-MD5sum: f61d105e33e0e79fa77ee53c8c7c2692
-SHA1: 2414b88890ce027da40ef00109c0c3f60d96287b
-SHA256: fe41365b49fb5efb787151b5393aba931148c9d37a0badb68ec5da232751a288
+Filename: debs/com.koutsie.ducksafari_1.0.23_iphoneos-arm.deb
+Size: 15066
+MD5sum: abae0c13dd74a6b24a11011ac5ba2d35
+SHA1: 6e00d2112de925ac3645e6368283e8e5449ae48c
+SHA256: 6d8836ed15158797728bfaa79f03f0f3d07c9cb69bfed16fbac8c54948a3f511
 
 Package: com.koutsie.witch
 Name: witch

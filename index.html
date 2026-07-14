@@ -37,6 +37,17 @@
         </div>
         <div class="panel">
             
+        <a href="depictions/com.koutsie.ducksafari.html" class="package-link" data-first-released="2026-07-07T01:07:09.986924">
+            <div class="row">
+                <img src="icons/com.koutsie.ducksafari.png" alt="Icon" class="icon" style="width: 44px; height: 44px; margin-top: 8px;">
+                <div class="chevron">&gt;</div>
+                <div class="info" style="line-height: 22px;">
+                    <h2 style="margin: 0; font-size: 18px;">DuckSafari <span style="font-size: 14px; color: #666;">1.0.23</span> <span class="new-badge" style="display: none;">NEW</span></h2>
+                    <p style="margin: 0;">Adds DuckDuckGo, DuckDuckGo Lite, Wiby.me, and FrogFind to your search engine list. Works on iOS 5 through 10~ ish.</p>
+                    <p style="margin: 2px 0 0 0; font-size: 11px; color: #999;">Released Jul 14, 2026</p>
+                </div>
+            </div>
+        </a>
         <a href="depictions/com.koutsie.oldtodon.html" class="package-link" data-first-released="2026-07-11T23:32:59.881480">
             <div class="row">
                 <img src="icons/com.koutsie.oldtodon.png" alt="Icon" class="icon" style="width: 44px; height: 44px; margin-top: 8px;">
@@ -56,17 +67,6 @@
                     <h2 style="margin: 0; font-size: 18px;">witch <span style="font-size: 14px; color: #666;">1.1.66</span> <span class="new-badge" style="display: none;">NEW</span></h2>
                     <p style="margin: 0;">A magical Twitch client for iOS 6-10.</p>
                     <p style="margin: 2px 0 0 0; font-size: 11px; color: #999;">Released Jul 13, 2026</p>
-                </div>
-            </div>
-        </a>
-        <a href="depictions/com.koutsie.ducksafari.html" class="package-link" data-first-released="2026-07-07T01:07:09.986924">
-            <div class="row">
-                <img src="icons/com.koutsie.ducksafari.png" alt="Icon" class="icon" style="width: 44px; height: 44px; margin-top: 8px;">
-                <div class="chevron">&gt;</div>
-                <div class="info" style="line-height: 22px;">
-                    <h2 style="margin: 0; font-size: 18px;">DuckSafari <span style="font-size: 14px; color: #666;">1.0.22</span> <span class="new-badge" style="display: none;">NEW</span></h2>
-                    <p style="margin: 0;">Adds DuckDuckGo, Wiby.me, and FrogFind to your search engine list. Works on iOS 6 through 10~ ish.</p>
-                    <p style="margin: 2px 0 0 0; font-size: 11px; color: #999;">Released Jul 11, 2026</p>
                 </div>
             </div>
         </a>
@@ -140,17 +140,6 @@
         <div class="row" style="text-align: center; border: none;">
             <a href="cydia://url/http://repo.k0.tel/" class="button-small" id="addBtn">Add to Cydia</a>
         </div>
-        <div class="panel" id="modernishPanel" style="display: none;">
-            <a href="modernishapps/" class="package-link">
-                <div class="row">
-                    <div class="chevron">&gt;</div>
-                    <div class="info" style="line-height: 22px;">
-                        <h2 style="margin: 0; font-size: 18px;">Modern-ish Apps</h2>
-                        <p style="margin: 0;">TrollStore installable IPA's for apps that I've ported to "modern" iOS</p>
-                    </div>
-                </div>
-            </a>
-        </div>
         <div class="counter-row">
             <a href="https://librecounter.org/referer/show" target="_blank">
                 <img src="https://librecounter.org/solid-orange.svg" referrerPolicy="unsafe-url" id="libreCounterImg">
@@ -185,13 +174,6 @@
             if (iosVer && parseInt(iosVer[1], 10) < 11) {
                 lc.width = 0;
                 lc.height = 0;
-            }
-        }
-        var modernishPanel = document.getElementById('modernishPanel');
-        if (modernishPanel) {
-            var modernishVer = navigator.userAgent.match(/OS (\d+)_/);
-            if (modernishVer && parseInt(modernishVer[1], 10) >= 11) {
-                modernishPanel.style.display = 'block';
             }
         }
     </script>
