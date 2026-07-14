@@ -1,0 +1,162 @@
+Package: com.koutsie.daemondemon
+Name: Daemon Demon
+Version: 1.1.1
+Architecture: iphoneos-arm
+Description: Like cappd but for iOS 6.
+Depends: firmware (>= 6.0), firmware (<= 6.1.99)
+Maintainer: koutsie <contact@the-sauna.icu>
+Author: koutsie
+Section: Tweaks
+Icon: file:///Library/DaemonDemon/icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.daemondemon.html
+Filename: debs/com.koutsie.daemondemon_1.1.1_iphoneos-arm.deb
+Size: 6322
+MD5sum: bcfbbe3d4aa5b5855e5c7d0aae859cf2
+SHA1: 8eb2d4cbf4fe6b2d4bb07312da91312268a3da97
+SHA256: e003649b4ba258dbade9909e67ce113958f8c8cd085b466381a78e5da483376e
+
+Package: com.koutsie.importmusic
+Name: MusicImporter
+Description: Import audio files into the iPod/iTunes library using Gremlin.
+Maintainer: koutsie <contact@the-sauna.icu>
+Author: koutsie <contact@the-sauna.icu>
+Section: Utilities
+Depends: firmware (>= 5.0), firmware (<= 7.1.2), co.cocoanuts.gremlin
+Architecture: iphoneos-arm
+Version: 1.1.29
+Installed-Size: 264
+Icon: file:///Applications/MusicImporter.app/Icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.importmusic.html
+Filename: debs/com.koutsie.importmusic_1.1.29_iphoneos-arm.deb
+Size: 101056
+MD5sum: 58334b7738c5e7697c69d5885542aae1
+SHA1: 5fe66e1b54c9988bfb644c0e0c3adfa4ec1ad82e
+SHA256: 397aeab3ee77198dd36c9d22279823fe8c8beea52f61a91bb6044fcbd4cef08d
+
+Package: com.koutsie.ducksafari
+Name: DuckSafari
+Version: 1.0.22
+Architecture: iphoneos-arm
+Description: Adds DuckDuckGo, Wiby.me, and FrogFind to your search engine list. Works on iOS 6 through 10~ ish.
+Depends: firmware (>= 6.0), firmware (<= 10.0.0)
+Maintainer: koutsie <contact@the-sauna.icu>
+Author: koutsie
+Section: Tweaks
+Icon: file:///Library/DuckSafari/ducksafari.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.ducksafari.html
+Filename: debs/com.koutsie.ducksafari_1.0.22_iphoneos-arm.deb
+Size: 14578
+MD5sum: f61d105e33e0e79fa77ee53c8c7c2692
+SHA1: 2414b88890ce027da40ef00109c0c3f60d96287b
+SHA256: fe41365b49fb5efb787151b5393aba931148c9d37a0badb68ec5da232751a288
+
+Package: com.koutsie.witch
+Name: witch
+Depends: firmware (>= 6.1.3), firmware (<= 10.3.3)
+Description: A magical Twitch client for iOS 6-10.
+Maintainer: Koutsie <contact@the-sauna.icu>
+Author: Koutsie
+Section: Applications
+Homepage: https://koutsie.srht.site/
+Architecture: iphoneos-arm
+Version: 1.1.66
+Installed-Size: 2792
+Icon: file:///Applications/witch.app/Icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.witch.html
+Filename: debs/com.koutsie.witch_1.1.66_iphoneos-arm.deb
+Size: 1244084
+MD5sum: 4448873a7195d578f38e36a837bedd29
+SHA1: d247575b621dea900aaf2b7e251febd0f4679adb
+SHA256: 7603803f9e7b9fddde6da1451f231eced07ce09ddef23bcc2e0ca0ec7c0227e6
+
+Package: com.koutsie.oldfetch
+Name: oldfetch
+Description: Another fastfetch/neofetch
+Maintainer: Koutsie
+Author: Koutsie
+Section: Utilities
+Depends: firmware (>= 5.0), firmware (<= 7.1.2)
+Architecture: iphoneos-arm
+Version: 1.0.3
+Installed-Size: 56
+Icon: file:///usr/share/oldfetch/icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.oldfetch.html
+Filename: debs/com.koutsie.oldfetch_1.0.3_iphoneos-arm.deb
+Size: 7588
+MD5sum: c3e8e53291203b93ed1d0272f2e3652e
+SHA1: 229b2fc959f82b4e7f9921293a15ab6f9535b8b3
+SHA256: 4b49b4bb0197844c1d40f5f75cbba11db4003f5d05651da8da002c3602b84772
+
+Package: com.koutsie.boostbench
+Name: BoostBench
+Description: Install this to test the before / after JIT performance of a 3rd party app
+Depends: firmware (>= 4.3), firmware (<= 9.3.6)
+Maintainer: koutsie <contact@the-sauna.icu>
+Author: koutsie
+Section: Utilities
+Architecture: iphoneos-arm
+Version: 1.0.1
+Installed-Size: 284
+Icon: file:///Applications/BoostBench.app/CydiaIcon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.boostbench.html
+Filename: debs/com.koutsie.boostbench_1.0.1_iphoneos-arm.deb
+Size: 195220
+MD5sum: c767fab679fe02626203bbf9ad8229db
+SHA1: 28fd0687bea4fe382913ad460d61754ec0b0fafa
+SHA256: 7c035b8e05218ba037121d46dac3eed72a865803fb37216746620f761909940f
+
+Package: com.koutsie.boost
+Name: Boost
+Description: Gives JavaScript a real speed boost by turning on JIT in 3rd party apps!
+Depends: firmware (>= 4.3), firmware (<= 9.3.6), mobilesubstrate, preferenceloader
+Maintainer: koutsie <contact@the-sauna.icu>
+Author: koutsie
+Section: Tweaks
+Architecture: iphoneos-arm
+Version: 1.2.13
+Installed-Size: 260
+Icon: file:///Library/PreferenceBundles/BoostSettings.bundle/JS_NoGlare.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.boost.html
+Filename: debs/com.koutsie.boost_1.2.13_iphoneos-arm.deb
+Size: 167236
+MD5sum: 11458279c0356fa1edd6ea8fe08114b4
+SHA1: 07e0bf5444006906a412c481120be4b9d2323ccd
+SHA256: 0c0a7989a656fe3f99b3ed31292f4f035ac392bce80cb5f552ccc30f32b67310
+
+Package: com.koutsie.daemondemon-extra
+Name: Daemon Demon Extra
+Version: 1.0.3
+Architecture: iphoneos-arm
+Description: Like cappd but for iOS 6, extra features edition.
+Depends: firmware (>= 6.0), firmware (<= 6.1.99), com.koutsie.daemondemon
+Maintainer: koutsie <contact@the-sauna.icu>
+Author: koutsie
+Section: Tweaks
+Icon: file:///Library/DaemonDemonExtra/icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.daemondemon-extra.html
+Filename: debs/com.koutsie.daemondemon-extra_1.0.3_iphoneos-arm.deb
+Size: 6500
+MD5sum: f1525ff5b265ba3982266398c00eb760
+SHA1: 9fd722ea0f7d71e4c3cbe8910e61842ce46c0d5c
+SHA256: 8feec42374e56674ccef6f8914b4ff5c1b41700a5bf77cd6b19200b1639fd5b0
+
+Package: com.koutsie.oldtodon
+Name: oldtodon
+Depends: firmware (>= 6.0)
+Recommends: preferenceloader
+Description: A tiny but capable fediverse client for legacy devices.
+Maintainer: Koutsie <contact@the-sauna.icu>
+Author: Koutsie
+Section: Applications
+Homepage: https://koutsie.srht.site/
+Architecture: iphoneos-arm
+Version: 1.1.205
+Installed-Size: 4752
+Icon: file:///Applications/oldtodon.app/Icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.oldtodon.html
+Filename: debs/com.koutsie.oldtodon_1.1.205_iphoneos-arm.deb
+Size: 2027106
+MD5sum: e4ca7b6c3c2e86984bae12d30363fd83
+SHA1: 8bc84372829f6af27a15a0b85b6ad47508c3e2b2
+SHA256: 15b32ac546827c57a871b1dc0c41376bfbb6ed0432e00203574569e0b53dc5f5
+

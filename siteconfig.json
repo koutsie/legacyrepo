@@ -1,0 +1,11 @@
+{
+  "notFound": "404.html",
+  "fileConfigs": [
+    {
+      "glob": "**/*",
+      "options": {
+        "cacheControl": "no-cache, no-store, must-revalidate"
+      }
+    }
+  ]
+}

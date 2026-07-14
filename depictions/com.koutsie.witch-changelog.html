@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>witch changelog</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="../CydiaIcon.png">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="com.koutsie.witch.html" class="back-button">
+            <span class="back-button-pointer-wrap"><span class="back-button-pointer"></span></span>
+            <span class="back-button-body">witch</span>
+        </a>
+        <h1>Changelog</h1>
+    </div>
+    <div class="content">
+        <div class="panel">
+            <div class="row"><p style="margin: 0;"><strong>v1.1.66:</strong> <span style="color: #999; font-weight: normal;">(Jul 13, 2026)</span> minor fixes</p></div><div class="row"><p style="margin: 0;"><strong>v1.1.60:</strong> <span style="color: #999; font-weight: normal;">(Jul 12, 2026)</span> token refresh fixes</p></div><div class="row"><p style="margin: 0;"><strong>v1.1.59:</strong> <span style="color: #999; font-weight: normal;">(Jul 12, 2026)</span> fixed own badges</p></div><div class="row"><p style="margin: 0;"><strong>v1.1.57:</strong> <span style="color: #999; font-weight: normal;">(Jul 12, 2026)</span> fixed showing follow/unfollow qr</p></div><div class="row"><p style="margin: 0;"><strong>v1.1.54:</strong> <span style="color: #999; font-weight: normal;">(Jul 12, 2026)</span> fixed some livestreams not being able to load</p></div><div class="row"><p style="margin: 0;"><strong>v1.1.12:</strong> <span style="color: #999; font-weight: normal;">(Jul 11, 2026)</span> fixed version gating</p></div><div class="row"><p style="margin: 0;"><strong>v1.1.11:</strong> <span style="color: #999; font-weight: normal;">(Jul 11, 2026)</span> initial release, send bugs to <a href="https://layer8.space/@k">@k@layer8.space</a> in fedi!</p></div>
+        </div>
+        <div class="counter-row">
+            <a href="https://librecounter.org/referer/show" target="_blank">
+                <img src="https://librecounter.org/solid-orange.svg" referrerPolicy="unsafe-url" id="libreCounterImg">
+            </a>
+        </div>
+        <div class="fedi-row">
+            Like my work?<br>
+            <a href="https://layer8.space/@k" class="fedi-link"><img src="../fedi-icon.png" alt="">fedi</a>!
+        </div>
+    </div>
+    <script>
+        var lc = document.getElementById('libreCounterImg');
+        if (lc) {
+            var iosVer = navigator.userAgent.match(/OS (\d+)_/);
+            if (iosVer && parseInt(iosVer[1], 10) < 11) {
+                lc.width = 0;
+                lc.height = 0;
+            }
+        }
+    </script>
+</body>
+</html>

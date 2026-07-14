@@ -1,0 +1,64 @@
+{
+    "com.koutsie.importmusic": {
+        "1.1.4": "Fixed a crash on iOS6",
+        "1.1.5": "First public release, enjoy!",
+        "1.1.8": "Made gremlin process multiple songs at a time.",
+        "1.1.9": "Performance improvements for older iPhones!",
+        "1.1.12": "Fixed the icon, oops.",
+        "1.1.15": "Fixed iPhone 5 etc screen sizing issues!",
+        "1.1.16": "Set proper iOS compatibility range.",
+        "1.1.17": "improved unicode support",
+        "1.1.29": "fixing some import bugs"
+    },
+    "com.koutsie.oldfetch": {
+        "1.0.2": "First public release of Oldfetch!",
+        "1.0.3": "Set proper iOS compatibility range."
+    },
+    "com.koutsie.boost": {
+        "1.2.0": "fixed hooks!",
+        "1.2.7": "performance improvements",
+        "1.2.9": "even more hook fixes",
+        "1.2.10": "minor code improvements",
+        "1.2.12": "fixed more hooks",
+        "1.2.13": "split boost and boostbench into different apps"
+    },
+    "com.koutsie.ducksafari": {
+        "1.0.5": "initial release",
+        "1.0.6": "iOS 7.1.2 support, renamed to DuckSafari",
+        "1.0.7": "add credits to preloading + logo",
+        "1.0.8": "fixed wiby",
+        "1.0.15": "fixed wiby.me",
+        "1.0.16": "added frogfind.de",
+        "1.0.17": "fixed install",
+        "1.0.19": "oops, use http instead",
+        "1.0.20": "fixed frogfind, i thought it was .de hahah",
+        "1.0.21": "updated icon",
+        "1.0.22": "fixed firmware gating"
+    },
+    "com.koutsie.daemondemon": {
+        "1.0.1": "initial version",
+        "1.1.0": "remove aggregated and dumpbasebandcrash, they cause bootloop",
+        "1.1.1": "updated icon"
+    },
+    "com.koutsie.daemondemon-extra": {
+        "1.0.2": "initial version",
+        "1.0.3": "updated icon"
+    },
+    "com.koutsie.boostbench": {
+        "1.0.1": "split boost and boostbench into different apps"
+    },
+    "com.koutsie.witch": {
+        "1.1.11": "initial release, send bugs to <a href=\"https://layer8.space/@k\">@k@layer8.space</a> in fedi!",
+        "1.1.12": "fixed version gating",
+        "1.1.54": "fixed some livestreams not being able to load",
+        "1.1.57": "fixed showing follow/unfollow qr",
+        "1.1.59": "fixed own badges",
+        "1.1.60": "token refresh fixes",
+        "1.1.66": "minor fixes"
+    },
+    "com.koutsie.oldtodon": {
+        "1.1.200": "initial release, shoutouts fedi peeps <3",
+        "1.1.204": "minor fixes",
+        "1.1.205": "added badge for alice"
+    }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boost</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <script>document.body.style.width = window.innerWidth + 'px';</script>
+    <div class="content">
+        <div class="panel">
+            <div class="row">
+                <img src="../icons/com.koutsie.boost.png" alt="Icon" class="icon">
+                <div class="info">
+                    <h2>Boost <span style="font-size: 14px; color: #666;">1.2.13</span></h2>
+                    <p>Gives JavaScript a real speed boost by turning on JIT in 3rd party apps!</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel"><div class="screenshot-carousel"><img src="../screenshots/com.koutsie.boost-1.jpg" style="width: 187px" alt="Screenshot" onclick="openLightbox(this.src)"><img src="../screenshots/com.koutsie.boost-2.jpg" style="width: 187px" alt="Screenshot" onclick="openLightbox(this.src)"></div></div>
+        <div class="panel" id="compatPanel" style="display: none;">
+            <div class="row" id="compatRow"></div>
+        </div>
+        <div class="panel"><img class="bench-icon" src="../boost-bench/icon.png" alt=""><div class="bench-card"><span class="bench-device-tag">iPhone 4, iOS 6.1.3, 15 runs each</span><div class="bench-chart-wrap"><svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="jitGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#66bb6a"/><stop offset="100%" stop-color="#388e3c"/></linearGradient><linearGradient id="noGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ef5350"/><stop offset="100%" stop-color="#c62828"/></linearGradient></defs><rect x="0" y="0" width="300" height="200" fill="#fafafa" rx="4"/><line x1="40" y1="170" x2="280" y2="170" stroke="#bbb" stroke-width="1"/><text x="8" y="173" font-size="8" fill="#999">0s</text><text x="8" y="130" font-size="8" fill="#999">15s</text><text x="8" y="85" font-size="8" fill="#999">30s</text><line x1="40" y1="130" x2="280" y2="130" stroke="#e8e8e8" stroke-width="1" stroke-dasharray="2,3"/><line x1="40" y1="85" x2="280" y2="85" stroke="#e8e8e8" stroke-width="1" stroke-dasharray="2,3"/><rect x="55" y="130" width="80" height="40" rx="3" fill="url(#jitGrad)"/><text x="95" y="124" font-size="11" fill="#1b5e20" font-weight="bold" text-anchor="middle">15.2s</text><text x="95" y="155" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">JIT</text><rect x="165" y="65" width="80" height="105" rx="3" fill="url(#noGrad)"/><text x="205" y="59" font-size="11" fill="#b71c1c" font-weight="bold" text-anchor="middle">39.4s</text><text x="205" y="155" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">No JIT</text><text x="150" y="195" font-size="8" fill="#bbb" text-anchor="middle">Benchmark time (lower is better)</text></svg></div><span class="bench-stat-row"><strong class="green">2.6x faster</strong>with Boost</span></div><a href="../boost-bench/index.html" target="_blank" class="bench-fallback">Show in fullscreen &rsaquo;</a><a href="../boost-bench/perftest.html" target="_blank" class="bench-fallback">Run the benchmark yourself &rsaquo;</a><p class="bench-note" id="benchNote" style="display: none;">Safari already has the JIT entitlement Boost adds to other apps, so running it here won't show a real JIT vs no-JIT gap. Install the tweak and test it from a regular app instead.</p></div>
+        <div class="panel">
+            <div class="row">
+                <p><strong>Identifier:</strong> com.koutsie.boost</p>
+            </div>
+            <div class="row">
+                <p><strong>Section:</strong> Tweaks</p>
+            </div>
+            <div class="row">
+                <p><strong>Author:</strong> koutsie</p>
+            </div>
+            <div class="row">
+                <p><strong>Size:</strong> 163 KB</p>
+            </div>
+            <div class="row">
+                <p><strong>Released:</strong> Jul 8, 2026</p>
+            </div>
+        </div>
+        <div class="panel" id="changelog"><h2 style="margin: 15px 20px 10px 20px; font-size: 16px; color: #333;">Changelog</h2><div class="row"><p style="margin: 0;"><strong>v1.2.13:</strong> <span style="color: #999; font-weight: normal;">(Jul 8, 2026)</span> split boost and boostbench into different apps</p></div><a href="com.koutsie.boost-changelog.html" class="view-all-changes">view all changes &rsaquo;</a></div>
+        <div id="browser-download" style="display: none;">
+            <a href="cydia://package/com.koutsie.boost" class="button" style="margin-bottom: 10px;">Install via Cydia</a>
+            <a href="http://repo.k0.tel/debs/com.koutsie.boost_1.2.13_iphoneos-arm.deb" class="button">Download .deb</a>
+        </div>
+        <div class="counter-row">
+            <a href="https://librecounter.org/referer/show" target="_blank">
+                <img src="https://librecounter.org/solid-orange.svg" referrerPolicy="unsafe-url" id="libreCounterImg">
+            </a>
+        </div>
+        <div class="fedi-row">
+            Like my work?<br>
+            <a href="https://layer8.space/@k" class="fedi-link"><img src="../fedi-icon.png" alt="">fedi</a>!
+        </div>
+    </div>
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <img src="" alt="" id="lightboxImg">
+    </div>
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxOverlay').style.display = 'block';
+        }
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').style.display = 'none';
+        }
+        if (navigator.userAgent.indexOf('Cydia') === -1) {
+            document.getElementById('browser-download').style.display = 'block';
+        }
+        var benchNote = document.getElementById('benchNote');
+        if (benchNote) {
+            var ua = navigator.userAgent;
+            var isSafari = ua.indexOf('Safari') !== -1
+                && ua.indexOf('Version/') !== -1
+                && ua.indexOf('Cydia') === -1
+                && ua.indexOf('Chrome') === -1
+                && ua.indexOf('CriOS') === -1
+                && ua.indexOf('FxiOS') === -1
+                && ua.indexOf('OPiOS') === -1
+                && ua.indexOf('OPR') === -1
+                && ua.indexOf('Edg') === -1;
+            if (isSafari) {
+                benchNote.style.display = 'block';
+            }
+        }
+        var fwMin = "4.3";
+        var fwMax = "9.3.6";
+        if (fwMin || fwMax) {
+            var ua = navigator.userAgent;
+            var m = ua.match(/OS (\d+)_(\d+)(?:_(\d+))?/);
+            if (m) {
+                var deviceVer = [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3] || 0, 10)];
+                var parseBound = function (s) {
+                    var parts = s.split('.');
+                    var out = [];
+                    var i;
+                    for (i = 0; i < 3; i++) {
+                        out.push(parseInt(parts[i] || 0, 10));
+                    }
+                    return out;
+                };
+                var cmp = function (a, b) {
+                    var i;
+                    for (i = 0; i < 3; i++) {
+                        if (a[i] !== b[i]) {
+                            return a[i] - b[i];
+                        }
+                    }
+                    return 0;
+                };
+                var ok = true;
+                if (fwMin && cmp(deviceVer, parseBound(fwMin)) < 0) {
+                    ok = false;
+                }
+                if (fwMax && cmp(deviceVer, parseBound(fwMax)) > 0) {
+                    ok = false;
+                }
+                var panel = document.getElementById('compatPanel');
+                var row = document.getElementById('compatRow');
+                row.className = 'row compat-row ' + (ok ? 'compat-yes' : 'compat-no');
+                row.innerHTML = ok ? 'Your device is compatible!' : 'Your device may not be compatible.';
+                panel.style.display = 'block';
+            }
+        }
+        var lc = document.getElementById('libreCounterImg');
+        if (lc) {
+            var iosVer = navigator.userAgent.match(/OS (\d+)_/);
+            if (iosVer && parseInt(iosVer[1], 10) < 11) {
+                lc.width = 0;
+                lc.height = 0;
+            }
+        }
+    </script>
+</body>
+</html>

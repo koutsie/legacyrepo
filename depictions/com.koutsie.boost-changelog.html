@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boost changelog</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="../CydiaIcon.png">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="com.koutsie.boost.html" class="back-button">
+            <span class="back-button-pointer-wrap"><span class="back-button-pointer"></span></span>
+            <span class="back-button-body">Boost</span>
+        </a>
+        <h1>Changelog</h1>
+    </div>
+    <div class="content">
+        <div class="panel">
+            <div class="row"><p style="margin: 0;"><strong>v1.2.13:</strong> <span style="color: #999; font-weight: normal;">(Jul 8, 2026)</span> split boost and boostbench into different apps</p></div><div class="row"><p style="margin: 0;"><strong>v1.2.12:</strong> fixed more hooks</p></div><div class="row"><p style="margin: 0;"><strong>v1.2.10:</strong> <span style="color: #999; font-weight: normal;">(Jul 6, 2026)</span> minor code improvements</p></div><div class="row"><p style="margin: 0;"><strong>v1.2.9:</strong> <span style="color: #999; font-weight: normal;">(Jul 6, 2026)</span> even more hook fixes</p></div><div class="row"><p style="margin: 0;"><strong>v1.2.7:</strong> <span style="color: #999; font-weight: normal;">(Jul 6, 2026)</span> performance improvements</p></div><div class="row"><p style="margin: 0;"><strong>v1.2.0:</strong> <span style="color: #999; font-weight: normal;">(Jul 6, 2026)</span> fixed hooks!</p></div>
+        </div>
+        <div class="counter-row">
+            <a href="https://librecounter.org/referer/show" target="_blank">
+                <img src="https://librecounter.org/solid-orange.svg" referrerPolicy="unsafe-url" id="libreCounterImg">
+            </a>
+        </div>
+        <div class="fedi-row">
+            Like my work?<br>
+            <a href="https://layer8.space/@k" class="fedi-link"><img src="../fedi-icon.png" alt="">fedi</a>!
+        </div>
+    </div>
+    <script>
+        var lc = document.getElementById('libreCounterImg');
+        if (lc) {
+            var iosVer = navigator.userAgent.match(/OS (\d+)_/);
+            if (iosVer && parseInt(iosVer[1], 10) < 11) {
+                lc.width = 0;
+                lc.height = 0;
+            }
+        }
+    </script>
+</body>
+</html>

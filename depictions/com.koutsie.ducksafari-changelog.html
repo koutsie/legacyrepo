@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DuckSafari changelog</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="../CydiaIcon.png">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="com.koutsie.ducksafari.html" class="back-button">
+            <span class="back-button-pointer-wrap"><span class="back-button-pointer"></span></span>
+            <span class="back-button-body">DuckSafari</span>
+        </a>
+        <h1>Changelog</h1>
+    </div>
+    <div class="content">
+        <div class="panel">
+            <div class="row"><p style="margin: 0;"><strong>v1.0.22:</strong> <span style="color: #999; font-weight: normal;">(Jul 11, 2026)</span> fixed firmware gating</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.21:</strong> <span style="color: #999; font-weight: normal;">(Jul 8, 2026)</span> updated icon</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.20:</strong> <span style="color: #999; font-weight: normal;">(Jul 8, 2026)</span> fixed frogfind, i thought it was .de hahah</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.19:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> oops, use http instead</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.17:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> fixed install</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.16:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> added frogfind.de</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.15:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> fixed wiby.me</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.8:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> fixed wiby</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.7:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> add credits to preloading + logo</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.6:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> iOS 7.1.2 support, renamed to DuckSafari</p></div><div class="row"><p style="margin: 0;"><strong>v1.0.5:</strong> <span style="color: #999; font-weight: normal;">(Jul 7, 2026)</span> initial release</p></div>
+        </div>
+        <div class="counter-row">
+            <a href="https://librecounter.org/referer/show" target="_blank">
+                <img src="https://librecounter.org/solid-orange.svg" referrerPolicy="unsafe-url" id="libreCounterImg">
+            </a>
+        </div>
+        <div class="fedi-row">
+            Like my work?<br>
+            <a href="https://layer8.space/@k" class="fedi-link"><img src="../fedi-icon.png" alt="">fedi</a>!
+        </div>
+    </div>
+    <script>
+        var lc = document.getElementById('libreCounterImg');
+        if (lc) {
+            var iosVer = navigator.userAgent.match(/OS (\d+)_/);
+            if (iosVer && parseInt(iosVer[1], 10) < 11) {
+                lc.width = 0;
+                lc.height = 0;
+            }
+        }
+    </script>
+</body>
+</html>
