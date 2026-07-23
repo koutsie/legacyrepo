@@ -55,7 +55,8 @@
         "1.1.57": "fixed showing follow/unfollow qr",
         "1.1.59": "fixed own badges",
         "1.1.60": "token refresh fixes",
-        "1.1.66": "minor fixes"
+        "1.1.66": "minor fixes",
+        "1.1.70": "fixed rotation bugs and made auto-attempting *source* quality a thing"
     },
     "com.koutsie.oldtodon": {
         "1.1.200": "initial release, shoutouts fedi peeps <3",

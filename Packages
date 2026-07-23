@@ -1,3 +1,22 @@
+Package: com.koutsie.witch
+Name: witch
+Depends: firmware (>= 6.1.3), firmware (<= 10.3.3)
+Description: A magical Twitch client for iOS 6-10.
+Maintainer: Koutsie <contact@the-sauna.icu>
+Author: Koutsie
+Section: Applications
+Homepage: https://koutsie.srht.site/
+Architecture: iphoneos-arm
+Version: 1.1.70
+Installed-Size: 2812
+Icon: file:///Applications/witch.app/Icon.png
+Depiction: https://koutsie.srht.site/depictions/com.koutsie.witch.html
+Filename: debs/com.koutsie.witch_1.1.70_iphoneos-arm.deb
+Size: 1245024
+MD5sum: 53cdef2884171c5f14a2726297dc3520
+SHA1: dcec95d447c1fde950922b801a5d3968e08fa90a
+SHA256: 7591f5237442e65c73e466e0d35d58e71740006801f0a790adf0caf375674d6a
+
 Package: com.koutsie.daemondemon
 Name: Daemon Demon
 Version: 1.1.1
@@ -49,25 +68,6 @@ Size: 15066
 MD5sum: abae0c13dd74a6b24a11011ac5ba2d35
 SHA1: 6e00d2112de925ac3645e6368283e8e5449ae48c
 SHA256: 6d8836ed15158797728bfaa79f03f0f3d07c9cb69bfed16fbac8c54948a3f511
-
-Package: com.koutsie.witch
-Name: witch
-Depends: firmware (>= 6.1.3), firmware (<= 10.3.3)
-Description: A magical Twitch client for iOS 6-10.
-Maintainer: Koutsie <contact@the-sauna.icu>
-Author: Koutsie
-Section: Applications
-Homepage: https://koutsie.srht.site/
-Architecture: iphoneos-arm
-Version: 1.1.66
-Installed-Size: 2792
-Icon: file:///Applications/witch.app/Icon.png
-Depiction: https://koutsie.srht.site/depictions/com.koutsie.witch.html
-Filename: debs/com.koutsie.witch_1.1.66_iphoneos-arm.deb
-Size: 1244084
-MD5sum: 4448873a7195d578f38e36a837bedd29
-SHA1: d247575b621dea900aaf2b7e251febd0f4679adb
-SHA256: 7603803f9e7b9fddde6da1451f231eced07ce09ddef23bcc2e0ca0ec7c0227e6
 
 Package: com.koutsie.oldfetch
 Name: oldfetch
