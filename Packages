@@ -7,15 +7,15 @@ Author: Koutsie
 Section: Applications
 Homepage: https://koutsie.srht.site/
 Architecture: iphoneos-arm
-Version: 1.1.70
+Version: 1.1.71
 Installed-Size: 2812
 Icon: file:///Applications/witch.app/Icon.png
 Depiction: https://koutsie.srht.site/depictions/com.koutsie.witch.html
-Filename: debs/com.koutsie.witch_1.1.70_iphoneos-arm.deb
-Size: 1245024
-MD5sum: 53cdef2884171c5f14a2726297dc3520
-SHA1: dcec95d447c1fde950922b801a5d3968e08fa90a
-SHA256: 7591f5237442e65c73e466e0d35d58e71740006801f0a790adf0caf375674d6a
+Filename: debs/com.koutsie.witch_1.1.71_iphoneos-arm.deb
+Size: 1244866
+MD5sum: 72b8f2f8419408c7cb0ec2e473d5e82e
+SHA1: 707fee9de1d5db115e651d585bac7fa20efaa757
+SHA256: b237b2adcf0645e4a261faaf38abff093e1ed93e4ae2e7602b5cca10f3897a7e
 
 Package: com.koutsie.daemondemon
 Name: Daemon Demon
