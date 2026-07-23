@@ -12,7 +12,8 @@
     },
     "com.koutsie.oldfetch": {
         "1.0.2": "First public release of Oldfetch!",
-        "1.0.3": "Set proper iOS compatibility range."
+        "1.0.3": "Set proper iOS compatibility range.",
+        "1.0.4": "updated logo, again"
     },
     "com.koutsie.boost": {
         "1.2.0": "fixed hooks!",

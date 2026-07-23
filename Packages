@@ -77,15 +77,15 @@ Author: Koutsie
 Section: Utilities
 Depends: firmware (>= 5.0), firmware (<= 7.1.2)
 Architecture: iphoneos-arm
-Version: 1.0.3
-Installed-Size: 56
+Version: 1.0.4
+Installed-Size: 80
 Icon: file:///usr/share/oldfetch/icon.png
 Depiction: https://koutsie.srht.site/depictions/com.koutsie.oldfetch.html
-Filename: debs/com.koutsie.oldfetch_1.0.3_iphoneos-arm.deb
-Size: 7588
-MD5sum: c3e8e53291203b93ed1d0272f2e3652e
-SHA1: 229b2fc959f82b4e7f9921293a15ab6f9535b8b3
-SHA256: 4b49b4bb0197844c1d40f5f75cbba11db4003f5d05651da8da002c3602b84772
+Filename: debs/com.koutsie.oldfetch_1.0.4_iphoneos-arm.deb
+Size: 11346
+MD5sum: b66c9e7a1d13b719d1cc63ba0f674a85
+SHA1: e6a3efe9476c1c4f18dff5fbb6e5edec5ae55b64
+SHA256: f48bf766310e18f9bf3be1e1a4be8eb009efc9253c90ccd85ff4c9691e8f2c43
 
 Package: com.koutsie.boostbench
 Name: BoostBench
