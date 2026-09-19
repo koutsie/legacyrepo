@@ -1,0 +1,20 @@
+Origin: koutsie's repo
+Label: koutsie's repo
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: Tweaks for iOS 5-9, well - mostly...
+MD5Sum:
+ 53dfd50392e20d7e9f108bdac20599dd 6042 Packages
+ 53b105d1181dada7d102e0bad0c00dc1 2045 Packages.gz
+ 3db00e8af61098e592f636b1d2aee277 2186 Packages.bz2
+SHA1:
+ 702ef895b51e94de392d4c7400db3aff2efd10f9 6042 Packages
+ b660bc495dd9d72cf1397bcdd659f21096781683 2045 Packages.gz
+ 7e44243a1ab292c592b781d8d385f0452a774288 2186 Packages.bz2
+SHA256:
+ 2da5d74013c104e212c00e67313155b6509de8989dd13fce0eb50683d2f67e97 6042 Packages
+ 467e693839eee953012f2d39a552cb472564ce741e72b8ed49fdbff440584276 2045 Packages.gz
+ 44fb2bdfe28ff82f69179f38660ec0d01645d30cab89cb3f0adf71ba8f3ffd60 2186 Packages.bz2
