@@ -1,0 +1,23 @@
+Origin: koutsie's repo
+Label: koutsie's repo
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm iphoneos-arm64
+Components: main
+Description: Tweaks for iOS 5-9, well - mostly...
+MD5Sum:
+ 501c184d8e089965d05f93a73903c8f3 10680 Packages
+ b72d3667e0e1bfdfc0e4905da8402f45 3103 Packages.gz
+ 63bab5a464bc67ecab3687b118cf4aa6 3143 Packages.bz2
+ 89980446643c0d1129a97855002311e9 2949 Packages.lzma
+SHA1:
+ 23ca17d010532e40830a93cc75d542f2a567f3ee 10680 Packages
+ d51c2a817c00f11ff427347954523f95c488bfbe 3103 Packages.gz
+ 4645ae685009dba11c4b6c1d099f53bfc0775434 3143 Packages.bz2
+ c64a56faaa56497676c820b09c855815938f12be 2949 Packages.lzma
+SHA256:
+ b692cfc6384120ece3b8084f5e65210186bb215a118e2f78a258e6adce0639e0 10680 Packages
+ ec276b599dbb55d4f82f8551e9708375434a20a9706d40aa2d5a433c48d64d1d 3103 Packages.gz
+ 4e177810e23eb3f9896f7db2bb694955a1c270335a7db6cf4a3224e437524b98 3143 Packages.bz2
+ 28243c305be699e5ab5b58025b08fb83da6edb176097716d711a37920eb8fa12 2949 Packages.lzma

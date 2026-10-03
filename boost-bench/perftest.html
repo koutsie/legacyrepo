@@ -1,0 +1,567 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>benchmark</title>
+<style>
+  html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+  body { font-family: monospace; color: #000; background: #fff; font-size: 12px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  #wrap { padding: 8px; }
+  h2 { margin: 0 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #000; font-size: 14px; }
+  button { padding: 6px 14px; border: 2px solid #000; background: #fff; font-family: monospace; font-size: 13px; font-weight: bold; }
+  button:disabled { background: #ccc; border-color: #999; }
+  #status { margin: 8px 0; font-weight: bold; font-size: 11px; }
+  #progress-box { margin: 8px 0; width: 100%; border: 2px solid #000; height: 12px; background: #fff; display: none; box-sizing: border-box; }
+  #progress-fill { width: 0%; height: 100%; background: #000; }
+  #elapsed-counter { margin: 4px 0; font-size: 10px; color: #555; }
+  #live-ticker { margin: 4px 0; font-weight: bold; font-size: 10px; min-height: 14px; }
+  #panel-results { margin-top: 12px; width: 100%; display: none; }
+  #chart { margin-top: 16px; width: 100%; display: none; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 11px; }
+  th, td { border-bottom: 1px dotted #ccc; padding: 4px 3px; text-align: right; }
+  th { border-bottom: 2px solid #000; font-weight: bold; }
+  th:first-child, td:first-child { text-align: left; border-right: 1px dotted #ccc; }
+  .bar-row { margin-bottom: 8px; }
+  .bar-label { font-size: 10px; margin-bottom: 2px; }
+  .bar-track { float: left; width: 75%; background: #f4f4f4; border: 1px solid #ccc; height: 12px; }
+  .bar-fill { background: #000; height: 12px; width: 0%; }
+  .bar-val { float: left; width: 20%; margin-left: 2%; font-size: 10px; line-height: 12px; font-weight: bold; }
+  .clear { clear: both; }
+  h3 { margin: 12px 0 4px 0; padding-bottom: 2px; border-bottom: 1px solid #000; font-size: 12px; }
+  #env-data { font-size: 10px; }
+  #panel-env { margin-top: 12px; width: 100%; display: none; }
+  .stat-row { margin-bottom: 2px; }
+  .stat-lbl { font-weight: bold; display: inline-block; width: 80px; }
+</style>
+</head>
+<body>
+<div id="wrap">
+
+<h2>benchmark</h2>
+<button id="runbtn" onclick="startbenchmark()">start</button>
+<div id="status">ready.</div>
+<div id="progress-box"><div id="progress-fill"></div></div>
+<div id="elapsed-counter"></div>
+<div id="live-ticker"></div>
+
+<div id="panel-env">
+  <h3>device</h3>
+  <div id="env-data"></div>
+</div>
+
+<div id="panel-results">
+  <h3>results</h3>
+  <div id="results-table"></div>
+</div>
+
+<div id="chart"></div>
+
+</div>
+
+<script>
+var globaldiscard = 0;
+var rounds = 3;
+var currentround = 0;
+var currenttestidx = 0;
+var roundtotaltime = 0;
+var totalsteps = 0;
+var currentstep = 0;
+var testdata = {};
+var totaltimes = [];
+var lastTickUpdate = 0;
+var CHUNK_MS = 15;
+var elapsedTimerId = null;
+var elapsedTestStart = 0;
+var benchmarkRunning = false;
+
+function getnow() { return new Date().getTime(); }
+
+function updateLiveStatus(msg) {
+  var now = getnow();
+  if (now - lastTickUpdate > 30) {
+    document.getElementById("live-ticker").innerHTML = msg;
+    lastTickUpdate = now;
+  }
+}
+
+function startElapsedTimer() {
+  elapsedTestStart = getnow();
+  var el = document.getElementById("elapsed-counter");
+  el.innerHTML = "elapsed: 0.0s";
+  elapsedTimerId = setInterval(function() {
+    var sec = (getnow() - elapsedTestStart) / 1000;
+    el.innerHTML = "elapsed: " + sec.toFixed(1) + "s";
+  }, 1000);
+}
+
+function stopElapsedTimer() {
+  if (elapsedTimerId !== null) { clearInterval(elapsedTimerId); elapsedTimerId = null; }
+  document.getElementById("elapsed-counter").innerHTML = "";
+}
+
+function calcstats(arr) {
+  var min = arr[0], max = arr[0], sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < min) min = arr[i];
+    if (arr[i] > max) max = arr[i];
+    sum += arr[i];
+  }
+  return { min: min, max: max, avg: Math.floor(sum / arr.length) };
+}
+
+function makeRecursionTest() {
+  var total = 2000, i = 0, sum = 0;
+  function rh(depth) { if (depth === 0) return 1; return 1 + rh(depth - 1); }
+  return { total: total, progress: function() { return i; }, step: function(deadline) {
+    while (i < total) {
+      sum += rh(50);
+      i++;
+      if ((i % 500) === 0 && getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeJuliaTest() {
+  var width = 240, height = 240, maxIter = 100, row = 0, sum = 0;
+  var cr = -0.7, ci = 0.27015;
+  return { total: height, progress: function() { return row; }, step: function(deadline) {
+    while (row < height) {
+      for (var col = 0; col < width; col++) {
+        var zr = (col / width) * 3.0 - 1.5;
+        var zi = (row / height) * 3.0 - 1.5;
+        var iter = 0;
+        while (zr * zr + zi * zi <= 4 && iter < maxIter) {
+          var tmp = zr * zr - zi * zi + cr;
+          zi = 2 * zr * zi + ci;
+          zr = tmp;
+          iter++;
+        }
+        sum += iter;
+      }
+      row++;
+      if (getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeSineTaylorTest() {
+  var total = 20000, i = 0, sum = 0;
+  return { total: total, progress: function() { return i; }, step: function(deadline) {
+    while (i < total) {
+      var x = (i / total) * 6.283185307;
+      var x2 = x * x;
+      var term = x;
+      var result = x;
+      var sign = -1;
+      for (var n = 3; n < 15; n += 2) {
+        term = term * x2 / (n * (n - 1));
+        result += sign * term;
+        sign = -sign;
+      }
+      sum += result;
+      i++;
+      if ((i & 0xff) === 0 && getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeRaytracerTest() {
+  var width = 130, height = 130, row = 0, sum = 0;
+  var spheres = [];
+  spheres.push(0, 0, -5, 1);
+  spheres.push(2, 1, -7, 1.5);
+  spheres.push(-2, -1, -6, 0.8);
+  spheres.push(0, -3, -8, 2);
+  spheres.push(-1, 2, -9, 1.2);
+  spheres.push(3, -0.5, -6, 0.6);
+  var numSpheres = 6;
+  return { total: height, progress: function() { return row; }, step: function(deadline) {
+    while (row < height) {
+      for (var col = 0; col < width; col++) {
+        var dx = (col / width) * 2 - 1;
+        var dy = 1 - (row / height) * 2;
+        var closest = 1e9, closestCol = 0;
+        for (var s = 0; s < numSpheres; s++) {
+          var sx = spheres[s * 4];
+          var sy = spheres[s * 4 + 1];
+          var sz = spheres[s * 4 + 2];
+          var sr = spheres[s * 4 + 3];
+          var ox = 0 - sx, oy = 0 - sy, oz = 0 - sz;
+          var a = dx * dx + dy * dy + 1;
+          var b = 2 * (ox * dx + oy * dy + oz);
+          var c = ox * ox + oy * oy + oz * oz - sr * sr;
+          var disc = b * b - 4 * a * c;
+          if (disc >= 0) {
+            var t = (-b - Math.sqrt(disc)) / (2 * a);
+            if (t > 0 && t < closest) { closest = t; closestCol = s + 1; }
+          }
+        }
+        sum += closestCol;
+      }
+      row++;
+      if (getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeMandelbrotTest() {
+  var width = 240, height = 240, maxIter = 100, row = 0, sum = 0;
+  return { total: height, progress: function() { return row; }, step: function(deadline) {
+    while (row < height) {
+      for (var col = 0; col < width; col++) {
+        var x0 = (col / width) * 3.5 - 2.5;
+        var y0 = (row / height) * 2.0 - 1.0;
+        var x = 0, y = 0, iter = 0;
+        while (x * x + y * y <= 4 && iter < maxIter) {
+          var xt = x * x - y * y + x0;
+          y = 2 * x * y + y0;
+          x = xt;
+          iter++;
+        }
+        sum += iter;
+      }
+      row++;
+      if (getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeNewtonFractalTest() {
+  var width = 150, height = 150, maxIter = 40, row = 0, sum = 0;
+  return { total: height, progress: function() { return row; }, step: function(deadline) {
+    while (row < height) {
+      for (var col = 0; col < width; col++) {
+        var zr = (col / width) * 4 - 2;
+        var zi = (row / height) * 4 - 2;
+        var iter = 0;
+        while (iter < maxIter) {
+          var zr2 = zr * zr, zi2 = zi * zi;
+          var numr = zr2 * zr - 3 * zr * zi2 - 1;
+          var numi = 3 * zr2 * zi - zi2 * zi;
+          var denr = 3 * (zr2 - zi2);
+          var deni = 6 * zr * zi;
+          var denorm = denr * denr + deni * deni;
+          if (denorm < 1e-30) break;
+          var stepr = (numr * denr + numi * deni) / denorm;
+          var stepi = (numi * denr - numr * deni) / denorm;
+          var nr = zr - stepr;
+          var ni = zi - stepi;
+          var diff = (nr - zr) * (nr - zr) + (ni - zi) * (ni - zi);
+          if (diff < 1e-20) break;
+          zr = nr; zi = ni;
+          iter++;
+        }
+        sum += iter;
+      }
+      row++;
+      if (getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeAckermannTest() {
+  var rounds = 20, round = 0, result = 0;
+  function ackermann(m, n) {
+    if (m === 0) return n + 1;
+    if (n === 0) return ackermann(m - 1, 1);
+    return ackermann(m - 1, ackermann(m, n - 1));
+  }
+  return { total: rounds, progress: function() { return round; }, step: function(deadline) {
+    while (round < rounds) {
+      result = ackermann(3, 3);
+      round++;
+      if (getnow() > deadline) return false;
+    }
+    globaldiscard = result;
+    return true;
+  }};
+}
+
+function makeLorenzTest() {
+  var steps = 60000, rounds = 3;
+  var sigma = 10, rho = 28, beta = 8 / 3;
+  var dt = 0.01;
+  var round = 0, step = 0;
+  var x = 0.1, y = 0, z = 0;
+  return { total: rounds * steps, progress: function() { return round * steps + step; }, step: function(deadline) {
+    while (round < rounds) {
+      while (step < steps) {
+        var dx = sigma * (y - x);
+        var dy = x * (rho - z) - y;
+        var dz = x * y - beta * z;
+        x += dt * dx;
+        y += dt * dy;
+        z += dt * dz;
+        step++;
+        if ((step & 0xfff) === 0 && getnow() > deadline) return false;
+      }
+      globaldiscard = x;
+      round++;
+      step = 0;
+      x = 0.1; y = 0; z = 0;
+      if (getnow() > deadline) return false;
+    }
+    return true;
+  }};
+}
+
+function makePerlinNoiseTest() {
+  var size = 96, octaves = 4, row = 0, col = 0, sum = 0;
+  var perm = [];
+  for (var k = 0; k < 512; k++) perm.push(k & 255);
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(t, a, b) { return a + t * (b - a); }
+  function grad(hash, x, y) {
+    var h = hash & 3;
+    var u = h < 2 ? x : y;
+    var v = h < 2 ? y : x;
+    return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+  }
+  function noise(nx, ny) {
+    var ix = (nx | 0) & 255;
+    var iy = (ny | 0) & 255;
+    var xf = nx - (nx | 0);
+    var yf = ny - (ny | 0);
+    var u = fade(xf);
+    var v = fade(yf);
+    var aa = perm[perm[ix] + iy];
+    var ba = perm[perm[ix + 1] + iy];
+    var ab = perm[perm[ix] + iy + 1];
+    var bb = perm[perm[ix + 1] + iy + 1];
+    return lerp(v,
+      lerp(u, grad(aa, xf, yf), grad(ba, xf - 1, yf)),
+      lerp(u, grad(ab, xf, yf - 1), grad(bb, xf - 1, yf - 1)));
+  }
+  return { total: size, progress: function() { return row + col / size; }, step: function(deadline) {
+    while (row < size) {
+      while (col < size) {
+        var val = 0, amp = 1, freq = 1;
+        for (var o = 0; o < octaves; o++) {
+          val += amp * noise(col * freq / size, row * freq / size);
+          amp *= 0.5;
+          freq *= 2;
+        }
+        sum += val;
+        col++;
+        if ((col & 0x1f) === 0 && getnow() > deadline) return false;
+      }
+      row++;
+      col = 0;
+      if (getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+function makeIntLoopTest() {
+  var total = 12000000, i = 0, a = 0, b = 1;
+  return { total: total, progress: function() { return i; }, step: function(deadline) {
+    while (i < total) {
+      a = (a + b) | 0;
+      b = (b + i) | 0;
+      i++;
+      if ((i & 0x7ffff) === 0 && getnow() > deadline) return false;
+    }
+    globaldiscard = a;
+    return true;
+  }};
+}
+
+function makeBitwiseHashTest() {
+  var total = 8000000, i = 0, h = 0x811c9dc5;
+  return { total: total, progress: function() { return i; }, step: function(deadline) {
+    while (i < total) {
+      h = ((h ^ i) * 0x01000193) >>> 0;
+      h = (((h << 13) | (h >>> 19)) ^ (h >> 16)) >>> 0;
+      i++;
+      if ((i & 0x7ffff) === 0 && getnow() > deadline) return false;
+    }
+    globaldiscard = h;
+    return true;
+  }};
+}
+
+function makeHiddenClassTest() {
+  var rounds = 100, round = 0, sum = 0;
+  var points = [];
+  function Point(x, y, z) { this.x = x; this.y = y; this.z = z; }
+  for (var k = 0; k < 5000; k++) points.push(new Point(Math.random(), Math.random(), Math.random()));
+  return { total: rounds, progress: function() { return round; }, step: function(deadline) {
+    while (round < rounds) {
+      for (var i = 0; i < points.length; i++) {
+        var p = points[i];
+        sum += p.x * p.y - p.z;
+        p.x += 0.001; p.y -= 0.001; p.z += 0.001;
+      }
+      round++;
+      if ((round & 0x3) === 0 && getnow() > deadline) return false;
+    }
+    globaldiscard = sum;
+    return true;
+  }};
+}
+
+var tests = [
+  { name: "recursion (2k)", make: makeRecursionTest },
+  { name: "julia set (240x240)", make: makeJuliaTest },
+  { name: "sine taylor (20k)", make: makeSineTaylorTest },
+  { name: "raytracer (130x130)", make: makeRaytracerTest },
+  { name: "mandelbrot (240x240)", make: makeMandelbrotTest },
+  { name: "int loop (12m)", make: makeIntLoopTest },
+  { name: "bitwise hash (8m)", make: makeBitwiseHashTest },
+  { name: "newton fractal (150x150)", make: makeNewtonFractalTest },
+  { name: "ackermann (3,3) x20", make: makeAckermannTest },
+  { name: "lorenz (60k steps)", make: makeLorenzTest },
+  { name: "hidden class (5k)", make: makeHiddenClassTest },
+  { name: "perlin noise (96x96)", make: makePerlinNoiseTest }
+];
+
+function printenv() {
+  var d = document.getElementById("env-data");
+  var ua = (typeof navigator !== "undefined" && navigator.userAgent) || "";
+  var html = "";
+  html += "<div class='stat-row'><span class='stat-lbl'>platform:</span> " + (navigator.platform ? navigator.platform.toLowerCase() : "n/a") + "</div>";
+  html += "<div class='stat-row'><span class='stat-lbl'>screen:</span> " + screen.width + "x" + screen.height + "</div>";
+  html += "<div class='stat-row'><span class='stat-lbl'>ua:</span> " + ua + "</div>";
+  d.innerHTML = html;
+  document.getElementById("panel-env").style.display = "block";
+}
+
+function drawchart(statsarr) {
+  var chart = document.getElementById("chart");
+  var html = "<h3>avg times</h3>";
+  var maxval = 0;
+  for (var i = 0; i < statsarr.length; i++) { if (statsarr[i].avg > maxval) maxval = statsarr[i].avg; }
+  for (var j = 0; j < statsarr.length; j++) {
+    var wp = maxval > 0 ? Math.floor((statsarr[j].avg / maxval) * 100) : 0;
+    if (wp < 1) wp = 1;
+    html += "<div class='bar-row'>";
+    html += "<div class='bar-label'>" + statsarr[j].name + "</div>";
+    html += "<div class='bar-track'><div class='bar-fill' style='width:" + wp + "%;'></div></div>";
+    html += "<div class='bar-val'>" + statsarr[j].avg + "ms</div>";
+    html += "<div class='clear'></div></div>";
+  }
+  chart.innerHTML = html;
+  chart.style.display = "block";
+}
+
+function runcurrenttest() {
+  var t = tests[currenttestidx];
+  document.getElementById("status").innerHTML = "round " + (currentround + 1) + "/" + rounds + " - " + t.name;
+  var testinst = t.make();
+  var teststart = getnow();
+  startElapsedTimer();
+  setTimeout(function() { if (benchmarkRunning) steptest(t, testinst, teststart); }, 20);
+}
+
+function updateOverallProgress(testfraction) {
+  var overallpct = Math.floor(((currentstep + testfraction) / totalsteps) * 100);
+  if (overallpct > 100) overallpct = 100;
+  document.getElementById("progress-fill").style.width = overallpct + "%";
+}
+
+function steptest(t, testinst, teststart) {
+  if (!benchmarkRunning) return;
+  var deadline = getnow() + CHUNK_MS;
+  var finished = testinst.step(deadline);
+  var frac = testinst.progress() / testinst.total;
+  if (frac > 1) frac = 1;
+  var pct = Math.floor(frac * 100);
+  updateLiveStatus(t.name + ": " + pct + "%");
+  updateOverallProgress(frac);
+  if (!finished) {
+    setTimeout(function() { steptest(t, testinst, teststart); }, 0);
+    return;
+  }
+  stopElapsedTimer();
+  var ttime = getnow() - teststart;
+  if (!testdata[t.name]) testdata[t.name] = [];
+  testdata[t.name].push(ttime);
+  roundtotaltime += ttime;
+  currentstep++;
+  updateOverallProgress(0);
+  document.getElementById("live-ticker").innerHTML = t.name + ": " + ttime + "ms";
+  currenttestidx++;
+  runnexttest();
+}
+
+function runnexttest() {
+  if (!benchmarkRunning) return;
+  if (currenttestidx >= tests.length) {
+    totaltimes.push(roundtotaltime);
+    currentround++;
+    if (currentround < rounds) { currenttestidx = 0; roundtotaltime = 0; runnexttest(); }
+    else finishbenchmark();
+    return;
+  }
+  runcurrenttest();
+}
+
+function finishbenchmark() {
+  benchmarkRunning = false;
+  var btn = document.getElementById("runbtn");
+  var rt = document.getElementById("results-table");
+  document.getElementById("progress-box").style.display = "none";
+  document.getElementById("live-ticker").innerHTML = "";
+  printenv();
+  var html = "<table><tr><th>test</th><th>min</th><th>max</th><th>avg</th></tr>";
+  var chartdata = [];
+  for (var i = 0; i < tests.length; i++) {
+    var tname = tests[i].name;
+    var stats = calcstats(testdata[tname]);
+    chartdata.push({ name: tname, min: stats.min, max: stats.max, avg: stats.avg });
+    html += "<tr><td>" + tname + "</td><td>" + stats.min + "</td><td>" + stats.max + "</td><td>" + stats.avg + "</td></tr>";
+  }
+  var tstats = calcstats(totaltimes);
+  html += "<tr style='border-top:2px solid #000;'><td><strong>total</strong></td><td><strong>" + tstats.min + "</strong></td><td><strong>" + tstats.max + "</strong></td><td><strong>" + tstats.avg + "</strong></td></tr></table>";
+  var score = Math.floor(100000000 / (tstats.avg || 1));
+  html += "<div style='margin-top:10px;font-size:13px;'><strong>score: " + score + "</strong></div>";
+  var avgMs = tstats.avg;
+  var mm = Math.floor(avgMs / 60000);
+  var ss = Math.floor((avgMs % 60000) / 1000);
+  var ms = Math.floor(avgMs % 1000);
+  var timeStr = (mm < 10 ? "0" : "") + mm + ":" + (ss < 10 ? "0" : "") + ss + ":" + (ms < 100 ? (ms < 10 ? "00" : "0") : "") + ms;
+  html += "<div style='font-size:11px;color:#555;'>total: " + timeStr + "</div>";
+  rt.innerHTML = html;
+  document.getElementById("panel-results").style.display = "block";
+  drawchart(chartdata);
+  document.getElementById("status").innerHTML = "done.";
+  btn.disabled = false;
+}
+
+function startbenchmark() {
+  var btn = document.getElementById("runbtn");
+  document.getElementById("panel-results").style.display = "none";
+  document.getElementById("chart").style.display = "none";
+  document.getElementById("progress-box").style.display = "block";
+  document.getElementById("progress-fill").style.width = "0%";
+  btn.disabled = true;
+  benchmarkRunning = true;
+  currentround = 0; currenttestidx = 0; roundtotaltime = 0;
+  currentstep = 0; totalsteps = rounds * tests.length;
+  testdata = {}; totaltimes = []; lastTickUpdate = 0;
+  runnexttest();
+}
+
+printenv();
+</script>
+
+</body>
+</html>
