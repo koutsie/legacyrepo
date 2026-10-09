@@ -1,0 +1,37 @@
+{
+  "class": "FeaturedBannersView",
+  "itemSize": "{263, 148}",
+  "itemCornerRadius": 10,
+  "banners": [
+    {
+      "url": "http://repo.k0.tel/banners/com.koutsie.oldtodon.png",
+      "title": "oldtodon",
+      "package": "com.koutsie.oldtodon",
+      "hideShadow": "false"
+    },
+    {
+      "url": "http://repo.k0.tel/banners/com.koutsie.witch.png",
+      "title": "witch",
+      "package": "com.koutsie.witch",
+      "hideShadow": "false"
+    },
+    {
+      "url": "http://repo.k0.tel/banners/com.koutsie.ducksafari.png",
+      "title": "DuckSafari",
+      "package": "com.koutsie.ducksafari",
+      "hideShadow": "false"
+    },
+    {
+      "url": "http://repo.k0.tel/banners/com.koutsie.importmusic.png",
+      "title": "MusicImporter",
+      "package": "com.koutsie.importmusic",
+      "hideShadow": "false"
+    },
+    {
+      "url": "http://repo.k0.tel/banners/com.koutsie.reideviant.png",
+      "title": "re-iDeviant",
+      "package": "com.koutsie.reideviant",
+      "hideShadow": "false"
+    }
+  ]
+}

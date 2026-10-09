@@ -1,0 +1,330 @@
+Package: com.koutsie.aptspeed
+Name: APT Speed
+Version: 1.0.6
+Architecture: iphoneos-arm
+Description: makes aptitude go vroom vroom
+Depends: firmware (>= 5.0), apt7 | apt
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Utilities
+Icon: file:///usr/share/koutsie/icons/com.koutsie.aptspeed.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.aptspeed.html
+Filename: debs/com.koutsie.aptspeed_1.0.6_iphoneos-arm.deb
+Size: 2388
+MD5sum: 6e0b650b4b7126188b1b38ab60a49299
+SHA1: eb53ba76affcb8029827060b5654910302d37fc3
+SHA256: a929294d7a3dd16636698d260424f359c6af21ffb3ddf4c56b5f6dc43da702ab
+
+Package: com.koutsie.boost
+Name: Boost
+Description: Gives JavaScript a real speed boost by turning on JIT in 3rd party apps!
+Depends: firmware (>= 4.3), firmware (<= 9.3.6), mobilesubstrate, preferenceloader
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Tweaks
+Architecture: iphoneos-arm
+Version: 1.2.19
+Installed-Size: 260
+Icon: file:///usr/share/koutsie/icons/com.koutsie.boost.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.boost.html
+Filename: debs/com.koutsie.boost_1.2.19_iphoneos-arm.deb
+Size: 167372
+MD5sum: 8e4146156b6daf1494399f9a44637a87
+SHA1: 07320ec932e9e4028bc401dd24537d80eb38c3e2
+SHA256: 020316ce08b2e6b527abb4a4564624ccfcdef3deb2dbcca90eac3e6fc8cba977
+
+Package: com.koutsie.boostbench
+Name: BoostBench
+Description: Install this to test the before / after JIT performance of a 3rd party app
+Depends: firmware (>= 4.3), firmware (<= 9.3.6)
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Utilities
+Architecture: iphoneos-arm
+Version: 1.0.3
+Installed-Size: 284
+Icon: file:///usr/share/koutsie/icons/com.koutsie.boostbench.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.boostbench.html
+Filename: debs/com.koutsie.boostbench_1.0.3_iphoneos-arm.deb
+Size: 196198
+MD5sum: 06b2dc6e42fed124783897c9b66a284a
+SHA1: 6b8479e14d29925c3a7c28e01e5241208fb84b77
+SHA256: c678bb9eede783afd3b987e75dd68005110c9ed52e6474cb97d12e4bdde80d66
+
+Package: com.koutsie.bs4ios
+Name: BS4iOS
+Depends: firmware (>= 3.1)
+Description: Shows battery health in a convenient way.
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Architecture: iphoneos-arm
+Version: 0.3.2
+Installed-Size: 424
+Icon: file:///usr/share/koutsie/icons/com.koutsie.bs4ios.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.bs4ios.html
+Filename: debs/com.koutsie.bs4ios_0.3.2_iphoneos-arm.deb
+Size: 192574
+MD5sum: 02487d66aab267f50eb882f928481b84
+SHA1: fd7d1634995af213d67ce2253c26baaba9274d24
+SHA256: 5e59f1ff1b17544f77a1bdfa135bb68da0b9a9871e2421667c9aa377d6552f49
+
+Package: com.koutsie.bs4ios
+Name: BS4iOS
+Depends: firmware (>= 7.0)
+Description: Shows battery health in a convenient way.
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Architecture: iphoneos-arm64
+Version: 0.3.2
+Installed-Size: 312
+Icon: http://repo.k0.tel/icons/com.koutsie.bs4ios.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.bs4ios.html
+Filename: debs/com.koutsie.bs4ios_0.3.2_iphoneos-arm64.deb
+Size: 171144
+MD5sum: 10b2ab3cb073835853c1e04479b8534c
+SHA1: 39f2329c7a0acee508711dc129b9c2742590086a
+SHA256: d03f0a2096a920cf1ebd43748d7c7a5d04d23e48a9732aaf60150b8cf9c1093e
+
+Package: com.koutsie.cfspeedtest
+Name: CF Speed Test
+Depends: firmware (>= 4.0)
+Description: Speed test against speed.cloudflare.com.
+Maintainer: Koutsie <thesauna@ik.me>
+Author: Koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Architecture: iphoneos-arm
+Version: 1.0.15
+Installed-Size: 1624
+Icon: file:///usr/share/koutsie/icons/com.koutsie.cfspeedtest.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.cfspeedtest.html
+Filename: debs/com.koutsie.cfspeedtest_1.0.15_iphoneos-arm.deb
+Size: 650680
+MD5sum: d02fdb1536240f5c2531c7089b95d05e
+SHA1: b95d4dc702bd7b007f84789bacd30da8bc5f359d
+SHA256: 39ee4bd65eaefec773df0f98c231e6dd253696e65d642855e9b41c5ec36d13fe
+
+Package: com.koutsie.daemondemon-extra
+Name: Daemon Demon Extra
+Version: 1.0.5
+Architecture: iphoneos-arm
+Description: Like cappd but for iOS 6, extra features edition.
+Depends: firmware (>= 6.0), firmware (<= 6.1.99), com.koutsie.daemondemon
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Tweaks
+Icon: file:///usr/share/koutsie/icons/com.koutsie.daemondemon-extra.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.daemondemon-extra.html
+Filename: debs/com.koutsie.daemondemon-extra_1.0.5_iphoneos-arm.deb
+Size: 6558
+MD5sum: dcd9a9a851e4f1f920ff66aa93fb977d
+SHA1: e1636e0d76c674d15d4d6f79cd4fc42552d9ffe0
+SHA256: 4b77ff03f3f77104be04ad0be89c9a46e79e7512befc7d06595a9ca2b2830760
+
+Package: com.koutsie.daemondemon
+Name: Daemon Demon
+Version: 1.1.3
+Architecture: iphoneos-arm
+Description: Like cappd but for iOS 6.
+Depends: firmware (>= 6.0), firmware (<= 6.1.99)
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Tweaks
+Icon: file:///usr/share/koutsie/icons/com.koutsie.daemondemon.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.daemondemon.html
+Filename: debs/com.koutsie.daemondemon_1.1.3_iphoneos-arm.deb
+Size: 6388
+MD5sum: f874b41bbe872e3aef9b2356c98de703
+SHA1: baadb0fb902614a860580c8277a7ff2dd83d55f7
+SHA256: 36a04b199ecde98845f6854188dc3c076da1a4d7910bef75a6729eadc94d3d9e
+
+Package: com.koutsie.ducksafari
+Name: DuckSafari
+Version: 1.0.26
+Architecture: iphoneos-arm
+Description: Adds DuckDuckGo, DuckDuckGo HTML, DuckDuckGo Lite, Wiby.me, and FrogFind to your search engine list. Works on iOS 5 through 10~ ish.
+Depends: firmware (>= 5.0), firmware (<= 10.0.0)
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Tweaks
+Icon: file:///usr/share/koutsie/icons/com.koutsie.ducksafari.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.ducksafari.html
+Filename: debs/com.koutsie.ducksafari_1.0.26_iphoneos-arm.deb
+Size: 13656
+MD5sum: ce8b99ba9325c60439d715e569d73d20
+SHA1: b2c23becd956949a527d379452ad57c76e18390b
+SHA256: 6d19c42ebd58543568ffbc69d433fbf5b7463d2655fd1e4c394787a3d6398912
+
+Package: com.koutsie.importmusic
+Name: MusicImporter
+Description: Import audio, video and image files into the Music, Videos and
+ Photos libraries directly, without Gremlin. Drop files into
+ /var/mobile/Media/Downloads/MusicImporter/ via iFunBox, iMazing or ifuse, or
+ the web uploader, then tap the Import All button. Includes a CLI tool.
+ Images need iOS 8 or later.
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Utilities
+Depends: firmware (>= 5.0)
+Architecture: iphoneos-arm
+Version: 2.0.1
+Installed-Size: 1756
+Icon: file:///usr/share/koutsie/icons/com.koutsie.importmusic.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.importmusic.html
+Filename: debs/com.koutsie.importmusic_2.0.1_iphoneos-arm.deb
+Size: 633506
+MD5sum: d1db9479d31f8c971173a4adf8dc889f
+SHA1: 4fa6f2a3434060aa16ceda42e9ec6e4a74df7262
+SHA256: 85eecf3771836a41b5795650c428290a428d4c1adc4d04062553cd9e26e4a1de
+
+Package: com.koutsie.oldfetch
+Name: oldfetch
+Description: Another fastfetch/neofetch
+Maintainer: Koutsie <thesauna@ik.me>
+Author: Koutsie <thesauna@ik.me>
+Section: Utilities
+Depends: firmware (>= 3.0), firmware (<= 9.3.6)
+Architecture: iphoneos-arm
+Version: 1.0.8
+Installed-Size: 60
+Icon: file:///usr/share/koutsie/icons/com.koutsie.oldfetch.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.oldfetch.html
+Filename: debs/com.koutsie.oldfetch_1.0.8_iphoneos-arm.deb
+Size: 11214
+MD5sum: 0a58a63a1c2f497180820bb78b37ef97
+SHA1: ff1f77af4dc5bf28e139fcc8c7088b7fe0543b97
+SHA256: eef1519760920be1f92cd529c58f8859f9d661d14584a213c957459c721f736a
+
+Package: com.koutsie.oldtodon
+Name: oldtodon
+Depends: firmware (>= 11.0), firmware (<= 15.8.99)
+Version: 1.1.255
+Architecture: iphoneos-arm64
+Description: A tiny but capable fediverse client for iOS 11-15, rootless jailbreak.
+Maintainer: Koutsie <thesauna@ik.me>
+Author: Koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Icon: http://repo.k0.tel/icons/com.koutsie.oldtodon.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.oldtodon.html
+Filename: debs/com.koutsie.oldtodon_1.1.255_iphoneos-arm64.deb
+Size: 9351846
+MD5sum: aaa1c1a651e48d75ba2d62d38432999c
+SHA1: b9e6a5e0dc53c2f272da20c826e9bc47d651486e
+SHA256: c8dae890eb3ed90518ab5c3b20af33e513cc583079db197d258684d686bcb7c4
+
+Package: com.koutsie.oldtodon
+Name: oldtodon
+Depends: firmware (>= 5.0)
+Recommends: preferenceloader
+Version: 1.1.324
+Architecture: iphoneos-arm
+Description: A tiny but capable fediverse client for legacy devices.
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Icon: file:///usr/share/koutsie/icons/com.koutsie.oldtodon.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.oldtodon.html
+Filename: debs/com.koutsie.oldtodon_1.1.324_iphoneos-arm.deb
+Size: 9415378
+MD5sum: 22337d1102c209e384fee435fcd99aed
+SHA1: 2ffd4fc23ed2e43a502f6f933f62760b0a656863
+SHA256: 52bb887809efd51e3b50f59d1e82e6e2b714b8a01e5ee1c297ffb5caa048ab64
+
+Package: com.koutsie.reideviant
+Name: re-iDeviant
+Description: re-iDeviant for iDeviant 2.0.0 for iOS. Enjoy!
+Depends: firmware (>= 4.3), mobilesubstrate
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Tweaks
+Architecture: iphoneos-arm
+Version: 0.0.7-1
+Installed-Size: 860
+Icon: file:///usr/share/koutsie/icons/com.koutsie.reideviant.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.reideviant.html
+Filename: debs/com.koutsie.reideviant_0.0.7-1_iphoneos-arm.deb
+Size: 435358
+MD5sum: 19da79c8084c44733d46d7d592170232
+SHA1: 2c76ce53d99d9bf3c872f9cbdf7c740de0dbd14e
+SHA256: 2b3fb4fb842d374608ee39619e7d8da85a9c1b5ee1b81780e0acf61ed01db6ba
+
+Package: com.koutsie.repo.icons
+Name: koutsie's repo icons
+Version: 1.0-9
+Architecture: iphoneos-arm
+Description: Icon cache for koutsie's repo!
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Utilities
+Priority: required
+Essential: yes
+Tag: cydia::essential
+Icon: file:///usr/share/koutsie/icons/repo.k0.tel.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.repo.icons.html
+Filename: debs/com.koutsie.repo.icons_1.0-9_iphoneos-arm.deb
+Size: 179690
+MD5sum: 183e0c18aa256c12476a16d130395c2b
+SHA1: cfb3bd36374b7e2ebfe0a02933d12a9af4f400c1
+SHA256: 1ba83c0e18ff02a317dd40805082cf5d6ca0aa275a4e70eb2f9c600345d13b78
+
+Package: com.koutsie.screenfix
+Name: ScreenFix
+Description: helps fix your yellowed screen maybe?
+ iPhone 4 image by DanielZanetti, modified by Saibo. CC BY-SA 3.0.
+Depends: firmware (>= 3.0), mobilesubstrate, preferenceloader
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Tweaks
+Architecture: iphoneos-arm
+Version: 0.1.1
+Installed-Size: 424
+Icon: file:///usr/share/koutsie/icons/com.koutsie.screenfix.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.screenfix.html
+Filename: debs/com.koutsie.screenfix_0.1.1_iphoneos-arm.deb
+Size: 80996
+MD5sum: 3104e691ce8fdf79f45a892c9996916e
+SHA1: 32b4d99281e27d7c82dfe1eeff5bfe09dfe272f5
+SHA256: f47ebeca6b2f88faf21d60975114e58ff3755d2aff8494a8e46f321bc83e50ac
+
+Package: com.koutsie.witch
+Name: witch
+Depends: firmware (>= 11.0), firmware (<= 15.8.99)
+Version: 0.1.85
+Architecture: iphoneos-arm64
+Description: A magical Twitch client for iOS 11-15, rootless jailbreak.
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Icon: http://repo.k0.tel/icons/com.koutsie.witch.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.witch.html
+Filename: debs/com.koutsie.witch_0.1.85_iphoneos-arm64.deb
+Size: 1428762
+MD5sum: 64d502eb074209e19774a6f14a500629
+SHA1: 987e13d0d3255fc08d2186332f69632d939dcbee
+SHA256: 10d58f375c6a172c1227c743e3aa2c4bce361e400aaf28d612dceaab1c1c9611
+
+Package: com.koutsie.witch
+Name: witch
+Depends: firmware (>= 5.0), firmware (<= 10.3.3)
+Version: 1.1.348
+Architecture: iphoneos-arm
+Description: A magical Twitch client for iOS 5-10.
+Maintainer: koutsie <thesauna@ik.me>
+Author: koutsie <thesauna@ik.me>
+Section: Applications
+Homepage: https://repo.k0.tel/
+Icon: file:///usr/share/koutsie/icons/com.koutsie.witch.png
+Depiction: http://repo.k0.tel/depictions/com.koutsie.witch.html
+Filename: debs/com.koutsie.witch_1.1.348_iphoneos-arm.deb
+Size: 1490604
+MD5sum: 0187c567161fcf3601a355a8c947e819
+SHA1: 3efc72147964ce247056a0e2d2ab6d365609c835
+SHA256: fb3e7be85a1ec4b0459461882dbcc23dba53ab37c26e17e37f9357c096ef99be
+

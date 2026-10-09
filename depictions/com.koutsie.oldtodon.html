@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>oldtodon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="oldtodon 1.1.324">
+<meta property="og:description" content="9.0 MB - A tiny but capable fediverse client for legacy devices.">
+<meta property="og:image" content="https://repo.k0.tel/icons/com.koutsie.oldtodon.png">
+<meta property="og:image:width" content="120">
+<meta property="og:image:height" content="120">
+<meta property="og:url" content="https://repo.k0.tel/depictions/com.koutsie.oldtodon.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="oldtodon 1.1.324">
+<meta name="twitter:description" content="9.0 MB - A tiny but capable fediverse client for legacy devices.">
+<meta name="twitter:image" content="https://repo.k0.tel/icons/com.koutsie.oldtodon.png">
+<meta name="theme-color" content="#f3f3f3">
+<link rel="icon" type="image/png" href="../CydiaIcon.png">
+<link rel="stylesheet" type="text/css" href="../style.css">
+<script>
+(function () {
+var ua = navigator.userAgent;
+if (ua.indexOf('Zebra/') !== -1) {
+if (/ Pure-Black/.test(ua)) {
+document.documentElement.className = 'theme-dark theme-black';
+} else if (/ Dark/.test(ua)) {
+document.documentElement.className = 'theme-dark';
+}
+}
+}());
+</script>
+</head>
+<body>
+<div class="compat-banner is-hidden" id="compatBanner"></div>
+<script>
+(function () {
+var fwRanges = [["5.0", ""], ["11.0", "15.8.99"]];
+var m = navigator.userAgent.match(/(?:iPhone|iPad|iPod).*? OS (\d+)_(\d+)(?:_(\d+))?/);
+if (!m || !fwRanges.length) {
+return;
+}
+var device = [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3] || 0, 10)];
+function bound(text) {
+var parts = text.split('.');
+return [parseInt(parts[0] || 0, 10), parseInt(parts[1] || 0, 10), parseInt(parts[2] || 0, 10)];
+}
+function cmp(a, b) {
+for (var i = 0; i < 3; i++) {
+if (a[i] !== b[i]) {
+return a[i] - b[i];
+}
+}
+return 0;
+}
+var ok = false;
+for (var r = 0; r < fwRanges.length; r++) {
+if (!(fwRanges[r][0] && cmp(device, bound(fwRanges[r][0])) < 0)
+&& !(fwRanges[r][1] && cmp(device, bound(fwRanges[r][1])) > 0)) {
+ok = true;
+}
+}
+var banner = document.getElementById('compatBanner');
+banner.className = ok ? 'compat-banner compat-yes' : 'compat-banner compat-no';
+banner.innerHTML = ok ? 'Your iOS version is compatible :)' : 'Your iOS version is NOT compatible :(';
+}());
+</script>
+<div class="shell">
+<div class="repo-bar"></div>
+<div class="navbar" id="navbar">
+<a href="../index.html" class="back-button">
+<span class="back-button-pointer-wrap"><span class="back-button-pointer"></span></span>
+<span class="back-button-body">All Packages</span>
+</a>
+<h1>oldtodon</h1>
+</div>
+<script>
+if (/Cydia|Zebra|Sileo/.test(navigator.userAgent)) {
+document.getElementById('navbar').className = 'navbar is-hidden';
+}
+</script>
+<div class="content">
+<div class="panel">
+<div class="row">
+<img src="../icons/com.koutsie.oldtodon.png" width="60" height="60" alt="oldtodon icon" class="icon">
+<div class="info">
+<h2>oldtodon <span class="detail-version">1.1.324</span></h2>
+<p>A tiny but capable fediverse client for legacy devices.</p>
+</div>
+</div>
+</div>
+<div class="panel"><div class="screenshot-carousel"><a class="shot-cell" href="../screenshots/com.koutsie.oldtodon-1.jpg"><span class="shot-box" style="padding-bottom: 150.000%"><img src="../screenshots/com.koutsie.oldtodon-1.jpg" width="374" height="561" alt="oldtodon screenshot" loading="lazy" decoding="async"></span></a><a class="shot-cell" href="../screenshots/com.koutsie.oldtodon-2.jpg"><span class="shot-box" style="padding-bottom: 150.000%"><img src="../screenshots/com.koutsie.oldtodon-2.jpg" width="374" height="561" alt="oldtodon screenshot" loading="lazy" decoding="async"></span></a><a class="shot-cell" href="../screenshots/com.koutsie.oldtodon-3.jpg"><span class="shot-box" style="padding-bottom: 150.000%"><img src="../screenshots/com.koutsie.oldtodon-3.jpg" width="374" height="561" alt="oldtodon screenshot" loading="lazy" decoding="async"></span></a><a class="shot-cell" href="../screenshots/com.koutsie.oldtodon-4.jpg"><span class="shot-box" style="padding-bottom: 150.000%"><img src="../screenshots/com.koutsie.oldtodon-4.jpg" width="374" height="561" alt="oldtodon screenshot" loading="lazy" decoding="async"></span></a><a class="shot-cell" href="../screenshots/com.koutsie.oldtodon-5.jpg"><span class="shot-box" style="padding-bottom: 150.000%"><img src="../screenshots/com.koutsie.oldtodon-5.jpg" width="374" height="561" alt="oldtodon screenshot" loading="lazy" decoding="async"></span></a></div></div>
+<div class="panel">
+<h2 class="detail-head">Details</h2>
+<div class="row">
+<p><strong>Version:</strong> 1.1.324</p>
+</div>
+<div class="row">
+<p><strong>Released:</strong> Oct 9, 2026</p>
+</div>
+<div class="row"><p><strong>Supported iOS versions:</strong> iOS 5.0 and later, iOS 11.0 to 15.8.99</p></div><div class="row"><p><strong>64-bit compatible:</strong> Yes</p></div><div class="row"><p><strong>Dependencies:</strong> None</p></div>
+<div class="row">
+<p><strong>Identifier:</strong> com.koutsie.oldtodon</p>
+</div>
+<div class="row">
+<p><strong>Section:</strong> Applications</p>
+</div>
+<div class="row">
+<p><strong>Author:</strong> koutsie <span id="authorMail" data-mail="108.116.53.114.112.71.104.117.124.104.122.108.111.123">thesauna [at] ik [dot] me</span></p>
+</div>
+<div class="row">
+<p><strong>Size:</strong> 9.0 MB</p>
+</div>
+</div>
+<div class="panel" id="changelog"><h2 class="detail-head">Changelog</h2><div class="row"><p style="margin: 0;"><strong>v1.1.324:</strong> <span class="changelog-date">(Oct 9, 2026)</span> performance improvements</p></div><a href="com.koutsie.oldtodon-changelog.html" class="view-all-changes">view all changes &rsaquo;</a></div>
+<div class="is-hidden" id="browserDownload">
+<a href="cydia://package/com.koutsie.oldtodon" class="button button-stack">Install via Cydia</a>
+<a href="../debs/com.koutsie.oldtodon_1.1.324_iphoneos-arm.deb" class="button button-stack">Download .deb</a>
+<a href="../ipas/oldtodon_1.1.324.ipa" class="button button-stack">Download .ipa</a>
+</div>
+<div class="footer"><div class="counter-row"><a href="https://librecounter.org/referer/show" target="_blank"><img src="https://librecounter.org/solid-orange.svg" referrerPolicy="unsafe-url" id="libreCounterImg" alt="Hit counter"></a></div><p class="fedi-row">Like my work? <a href="https://layer8.space/@k" class="fedi-link"><img src="../fedi-icon.png" alt="">fedi</a></p></div>
+</div>
+</div>
+<script>
+(function () {
+var ua = navigator.userAgent;
+var isCydia = /Cydia|Zebra|Sileo/.test(ua);
+if (!isCydia) {
+document.getElementById('browserDownload').className = '';
+}
+var benchNote = document.getElementById('benchNote');
+if (benchNote && !isCydia && ua.indexOf('Safari') !== -1 && ua.indexOf('Version/') !== -1
+&& !/Chrome|CriOS|FxiOS|OPiOS|OPR|Edg/.test(ua)) {
+benchNote.style.display = 'block';
+}
+var mail = document.getElementById('authorMail');
+if (mail) {
+var codes = mail.getAttribute('data-mail').split('.');
+var addr = '';
+for (var c = codes.length - 1; c >= 0; c--) {
+addr += String.fromCharCode(parseInt(codes[c], 10) - 7);
+}
+var link = document.createElement('a');
+link.href = 'mailto:' + addr;
+link.appendChild(document.createTextNode(addr));
+mail.parentNode.replaceChild(link, mail);
+}
+var lc = document.getElementById('libreCounterImg');
+var iosVer = ua.match(/OS (\d+)_/);
+if (lc && iosVer && parseInt(iosVer[1], 10) < 11) {
+lc.width = 0;
+lc.height = 0;
+}
+}());
+</script>
+</body>
+</html>

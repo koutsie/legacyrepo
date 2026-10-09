@@ -1,0 +1,38 @@
+name: Prune old runs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const runs = await github.paginate(github.rest.actions.listWorkflowRunsForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 100
+            });
+            const keep = new Set(runs
+              .slice()
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .slice(0, 3)
+              .map(r => r.id));
+            for (const run of runs) {
+              if (keep.has(run.id) || run.status !== "completed") {
+                continue;
+              }
+              await github.rest.actions.deleteWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: run.id
+              });
+              core.info(`deleted ${run.id} ${run.name} ${run.created_at}`);
+            }
