@@ -1,0 +1,63 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          show-progress: false
+      - run: tar --dereference --hard-dereference -cf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github '--exclude=.[^/]*' .
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          compression-level: 0
+          if-no-files-found: error
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+        with:
+          reporting_interval: 1000
+
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const runs = await github.paginate(github.rest.actions.listWorkflowRunsForRepo, {
+              owner, repo, status: "completed", per_page: 100
+            });
+            const old = runs
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .slice(3);
+            for (let i = 0; i < old.length; i += 10) {
+              await Promise.allSettled(old.slice(i, i + 10).map(run =>
+                github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id })));
+            }
+            core.info(`deleted ${old.length} of ${runs.length} completed runs`);
