@@ -1,0 +1,33 @@
+Origin: koutsie's repo
+Label: koutsie's repo
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm iphoneos-arm64
+Components: main
+Description: Tweaks for iPhone OS 3 and iOS 4-15
+Date: Sat, 21 Nov 2026 04:42:26 GMT
+MD5Sum:
+ 9a1faf01744e521b222e654cc55597f2 17131 Packages
+ 811d0f8132bc2bd2d9b337519c5cb800 4884 Packages.gz
+ 55593d828878aa5b5e39160fd2b84fa5 4609 Packages.bz2
+ df70e6a9572de976f0bff8bbdfecf4d1 4469 Packages.lzma
+ 18a606a975225a7f1b60059a51702c6a 4512 Packages.xz
+ 3388c71b1666ebfd930d2eee88a9a520 4537 Packages.zst
+ c1de21460d691928e7a230be1c5ec59c 9696 Packages.diff/Index
+SHA1:
+ 627670c358daed4e4dc1a1caa9d2173561436965 17131 Packages
+ 5006395095e3b67ca81604fab20d3b501276b539 4884 Packages.gz
+ bc5204018deb48d61c74e7543303576dec8f2b6f 4609 Packages.bz2
+ 43c96c04686f28b97922452c808c90c9e0cbbc4c 4469 Packages.lzma
+ 50d0815174fd8c669f7a47361ecd46c1fc2cec53 4512 Packages.xz
+ c4b14cf9f91a3b8328045479d56bfc0851b24f74 4537 Packages.zst
+ 1708f2602985d777a2d072e10fb2a22c7b0a5938 9696 Packages.diff/Index
+SHA256:
+ 54281d53511d31539096f0a9b1db64b2af29718949daecec4931e392394857c7 17131 Packages
+ 08a74b7a595431fca70e717f61d7cd063eb730c4e73ee67248965240cf967713 4884 Packages.gz
+ 36a0023ae71722b6d5a26b8c5f0cb4cd3c045bcd18c707ca1e2c4660436494a9 4609 Packages.bz2
+ 8cd11bbaae9ffad9c02ac69619c97be1f5c6f4ef28025197aad0e9b37f1d3c60 4469 Packages.lzma
+ 6f6c91f99d31ed3845b837979288e12c825c53659c08fd1686f816317d079b94 4512 Packages.xz
+ 69709438010cd89e290d304aac4af5047b3d93c76645ba8cacfc427930dc0186 4537 Packages.zst
+ d2e5bd223564bfd3aa41680b351c4c23e0eb8e330c56deab75159c1f3a6e3157 9696 Packages.diff/Index
